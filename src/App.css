@@ -33,7 +33,7 @@ path {
 }
 
 path:hover {
-  opacity: 0.50;
+  opacity: 0.90;
   cursor: pointer;
 }
 
