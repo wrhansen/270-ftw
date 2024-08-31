@@ -1,3 +1,9 @@
+# 270 FTW
+
+My take on the "270 to win" US election map. The design is mostly inspired from
+the https://www.270towin.com/ site. My goal here is to teach myself React through
+this project.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
