@@ -1,8 +1,10 @@
 .flex-container {
-    display: flex;
     width: 50%;
+    display: flex;
     border: 1px solid #ccc;
     margin: auto;
+    justify-items: center;
+    align-items: center;
 }
 
 .flex-item {
@@ -11,4 +13,21 @@
     text-align: center;
     line-height: 50px;
     color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #000;
+    position: absolute;
 }

@@ -10,21 +10,25 @@ const CountTracker = ({ counts, colors }: CountTrackerProps) => {
     let percentages = counts.map((value) => (value / total) * 100);
 
     return (
-        <div className="flex-container">
-            {percentages.map((percent, index) => (
-                <div
-                    key={index}
-                    className="flex-item"
-                    style={{
-                        flexBasis: `${percent}%`,
-                        backgroundColor: `${colors[index]}`,
-                        display: `${percent > 0 ? 'block' : 'none'}`
-                    }}
-                >
-                    {`${counts[index]}`}
-                </div>
-            ))}
+        <div className="container">
+            <div className="caret" />
+            <div className="flex-container">
+                {percentages.map((percent, index) => (
+                    <div
+                        key={index}
+                        className="flex-item"
+                        style={{
+                            flexBasis: `${percent}%`,
+                            backgroundColor: `${colors[index]}`,
+                            display: `${percent > 0 ? 'block' : 'none'}`
+                        }}
+                    >
+                        {`${counts[index]}`}
+                    </div>
+                ))}
+            </div>
         </div>
+
     );
 };
 
