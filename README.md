@@ -6,12 +6,12 @@ this project.
 
 ## TODO
 
-- [] Add "Legend" component that shows colors
-- [] Add state codes and electoral votes to the map
-- [] Add selector of preconfigured maps
-- [] Add component that allows split votes
-- [] Share link for votes
-- [] Add labels to CountTracker component
+- [ ] Add "Legend" component that shows colors
+- [ ] Add state codes and electoral votes to the map
+- [ ] Add selector of preconfigured maps
+- [ ] Add component that allows split votes
+- [ ] Share link for votes
+- [ ] Add labels to CountTracker component
 
 
 # Getting Started with Create React App
