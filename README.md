@@ -4,6 +4,16 @@ My take on the "270 to win" US election map. The design is mostly inspired from
 the https://www.270towin.com/ site. My goal here is to teach myself React through
 this project.
 
+## TODO
+
+- [] Add "Legend" component that shows colors
+- [] Add state codes and electoral votes to the map
+- [] Add selector of preconfigured maps
+- [] Add component that allows split votes
+- [] Share link for votes
+- [] Add labels to CountTracker component
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
