@@ -28,10 +28,20 @@
   color: #61dafb;
 }
 
+path {
+  pointer-events: all;
+}
+
+path:hover {
+  opacity: 0.50;
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
