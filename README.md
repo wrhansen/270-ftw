@@ -12,6 +12,7 @@ this project.
 - [ ] Add component that allows split votes
 - [ ] Share link for votes
 - [ ] Add labels to CountTracker component
+- [ ] Add s3 bucket deployment automation w/ github actions
 
 Demo link: http://270ftw.s3-website-us-east-1.amazonaws.com/
 
