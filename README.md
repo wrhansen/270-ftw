@@ -13,6 +13,7 @@ this project.
 - [ ] Share link for votes
 - [ ] Add labels to CountTracker component
 
+Demo link: http://270ftw.s3-website-us-east-1.amazonaws.com/
 
 # Getting Started with Create React App
 
