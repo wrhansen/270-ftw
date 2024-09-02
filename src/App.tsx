@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import ElectoralVotes from './data/ElectoralVotes';
+import { MapOption, mapOptions } from './data/maps';
 import CountTracker from './components/CountTracker';
 import MapLegend from './components/MapLegend';
+import MapSelector from './components/MapSelector';
 import StateColors from './models/StateColors';
 import USAMap from "react-usa-map";
 
@@ -31,6 +33,7 @@ const initDefaultVotes = () => {
 const App = () => {
     const [stateData, setStateData] = useState(initDefaultState() as { [key: string]: StateData });
     const [votes, setVotes] = useState<number[]>(initDefaultVotes());
+    const [selectedOption, setSelectedOption] = useState<MapOption>(mapOptions[0]);
 
 
     useEffect(() => {
@@ -66,6 +69,17 @@ const App = () => {
         setStateData(currentStates);
     };
 
+    const mapSelected = (selectedOption: MapOption | null): void => {
+        if (selectedOption) {
+            setSelectedOption({ ...selectedOption });
+            setStateData(JSON.parse(JSON.stringify(selectedOption.data)));
+        }
+    }
+
+    useEffect(() => {
+        mapSelected(selectedOption);
+    }, []);
+
     return (
         <div className="App">
             <h1>270 FTW</h1>
@@ -79,6 +93,7 @@ const App = () => {
                 </div>
                 <div className="sidebar">
                     <MapLegend />
+                    <MapSelector selectedMap={selectedOption} onChange={mapSelected} />
                 </div>
             </div>
         </div >

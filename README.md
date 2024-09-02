@@ -7,7 +7,8 @@ this project.
 ## TODO
 
 - [X] Add "Legend" component that shows colors
-- [ ] Add selector of preconfigured maps
+- [X] Add Window title
+- [X] Add selector of preconfigured maps
 - [ ] Add state codes and electoral votes to the map
 - [ ] Add component that allows split votes
 - [ ] Share link for votes
