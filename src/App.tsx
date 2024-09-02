@@ -48,6 +48,11 @@ const App = () => {
         setVotes(currentVotes);
     }, [stateData]);
 
+    useEffect(() => {
+        mapSelected(selectedOption);
+        // eslint-disable-next-line
+    }, []);
+
     const toggleColor = (color: string) => {
         const values = Object.values(StateColors);
         const currentIndex = values.indexOf(color as any);
@@ -75,11 +80,6 @@ const App = () => {
             setStateData(JSON.parse(JSON.stringify(selectedOption.data)));
         }
     }
-
-    useEffect(() => {
-        mapSelected(selectedOption);
-        // eslint-disable-next-line
-    }, []);
 
     return (
         <div className="App">

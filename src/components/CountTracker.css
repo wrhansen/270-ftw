@@ -31,3 +31,10 @@
     border-top: 10px solid #000;
     position: absolute;
 }
+
+.label-container {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
