@@ -92,14 +92,19 @@ const App = () => {
     const mapSelected = (selectedOption: MapOption | null): void => {
         if (selectedOption) {
             setSelectedOption(selectedOption);
-            refreshMap();
+            refreshMap(selectedOption.data);
         }
     };
 
     /* Use selected map data to fill out the map */
-    const refreshMap = () => {
-        setStateData(JSON.parse(JSON.stringify(selectedOption.data)));
+    const refreshMap = (selectedOptionData: { [key: string]: StateData } | null) => {
+        const option = selectedOptionData ?? selectedOption.data;
+        setStateData(JSON.parse(JSON.stringify(option)));
     };
+
+    const refreshHandler = () => {
+        refreshMap(null);
+    }
 
     return (
         <div className="App">
@@ -119,8 +124,10 @@ const App = () => {
                     <MapLegend />
                     <MapSelector selectedMap={selectedOption} onChange={mapSelected} />
                     <Button variant="primary"
-                        onClick={refreshMap}
-                        disabled={refreshDisabled}><i className="bi bi-arrow-clockwise"></i>Clear Map</Button>
+                        onClick={refreshHandler}
+                        disabled={refreshDisabled}>
+                        <i className="bi bi-arrow-clockwise"></i>Reset Map
+                    </Button>
                 </div>
             </div>
         </div >
