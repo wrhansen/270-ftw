@@ -78,7 +78,7 @@ const App = () => {
 
     useEffect(() => {
         mapSelected(selectedOption);
-    }, []);
+    });
 
     return (
         <div className="App">
