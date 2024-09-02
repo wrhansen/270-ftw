@@ -11,7 +11,7 @@ this project.
 - [X] Add selector of preconfigured maps
 - [X] Add s3 bucket deployment automation w/ github actions
 - [X] Add labels to CountTracker component
-- [ ] Add Reset Map Button
+- [X] Add Reset Map Button
 - [ ] Add state codes and electoral votes to the map
 - [ ] Add component that allows split votes
 - [ ] Share link for votes

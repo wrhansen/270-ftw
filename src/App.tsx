@@ -7,7 +7,9 @@ import MapLegend from './components/MapLegend';
 import MapSelector from './components/MapSelector';
 import StateColors from './models/StateColors';
 import USAMap from "react-usa-map";
-
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 interface StateData {
     fill: StateColors;
@@ -34,8 +36,10 @@ const App = () => {
     const [stateData, setStateData] = useState(initDefaultState() as { [key: string]: StateData });
     const [votes, setVotes] = useState<number[]>(initDefaultVotes());
     const [selectedOption, setSelectedOption] = useState<MapOption>(mapOptions[0]);
+    const [refreshDisabled, setRefreshDisabled] = useState<boolean>(true);
 
 
+    /* When state colors change, recalculate the votes for tracker */
     useEffect(() => {
         let currentVotes = initDefaultVotes();
         const keys = Object.values(StateColors);
@@ -48,11 +52,20 @@ const App = () => {
         setVotes(currentVotes);
     }, [stateData]);
 
+    /* On first render, trigger initial map to load */
     useEffect(() => {
         mapSelected(selectedOption);
         // eslint-disable-next-line
     }, []);
 
+    /* Enable "Clear Map" button when changes made to the current selected map */
+    useEffect(() => {
+        const current = JSON.stringify(stateData);
+        const original = JSON.stringify(selectedOption.data);
+        setRefreshDisabled(current === original);
+    }, [stateData]);
+
+    /* Change state color, based on index into StateColor enum */
     const toggleColor = (color: string) => {
         const values = Object.values(StateColors);
         const currentIndex = values.indexOf(color as any);
@@ -64,6 +77,7 @@ const App = () => {
         }
     };
 
+    /* callback for when a state is clicked on */
     const mapHandler = (event: any) => {
         const countryCode: string = event.target.dataset.name;
 
@@ -74,12 +88,18 @@ const App = () => {
         setStateData(currentStates);
     };
 
+    /* callback for when a map is selected */
     const mapSelected = (selectedOption: MapOption | null): void => {
         if (selectedOption) {
             setSelectedOption(selectedOption);
-            setStateData(JSON.parse(JSON.stringify(selectedOption.data)));
+            refreshMap();
         }
-    }
+    };
+
+    /* Use selected map data to fill out the map */
+    const refreshMap = () => {
+        setStateData(JSON.parse(JSON.stringify(selectedOption.data)));
+    };
 
     return (
         <div className="App">
@@ -90,11 +110,17 @@ const App = () => {
                         counts={votes}
                         colors={Object.values(StateColors)}
                     />
-                    <USAMap title="270 FTW" customize={stateData} onClick={mapHandler} />
+                    <USAMap title="270 FTW"
+                        customize={stateData}
+                        onClick={mapHandler}
+                    />
                 </div>
                 <div className="sidebar">
                     <MapLegend />
                     <MapSelector selectedMap={selectedOption} onChange={mapSelected} />
+                    <Button variant="primary"
+                        onClick={refreshMap}
+                        disabled={refreshDisabled}><i className="bi bi-arrow-clockwise"></i>Clear Map</Button>
                 </div>
             </div>
         </div >
