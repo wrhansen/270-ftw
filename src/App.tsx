@@ -63,7 +63,7 @@ const App = () => {
         const current = JSON.stringify(stateData);
         const original = JSON.stringify(selectedOption.data);
         setRefreshDisabled(current === original);
-    }, [stateData]);
+    }, [stateData, selectedOption.data]);
 
     /* Change state color, based on index into StateColor enum */
     const toggleColor = (color: string) => {
