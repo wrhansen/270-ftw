@@ -71,14 +71,15 @@ const App = () => {
 
     const mapSelected = (selectedOption: MapOption | null): void => {
         if (selectedOption) {
-            setSelectedOption({ ...selectedOption });
+            setSelectedOption(selectedOption);
             setStateData(JSON.parse(JSON.stringify(selectedOption.data)));
         }
     }
 
     useEffect(() => {
         mapSelected(selectedOption);
-    });
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <div className="App">
