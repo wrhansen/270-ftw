@@ -6,9 +6,9 @@ this project.
 
 ## TODO
 
-- [ ] Add "Legend" component that shows colors
-- [ ] Add state codes and electoral votes to the map
+- [X] Add "Legend" component that shows colors
 - [ ] Add selector of preconfigured maps
+- [ ] Add state codes and electoral votes to the map
 - [ ] Add component that allows split votes
 - [ ] Share link for votes
 - [ ] Add labels to CountTracker component

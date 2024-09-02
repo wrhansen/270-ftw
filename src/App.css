@@ -46,3 +46,8 @@ path:hover {
     transform: rotate(360deg);
   }
 }
+
+.main-row {
+  display: inline-flex;
+  align-items: first baseline;
+}

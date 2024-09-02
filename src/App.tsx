@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import ElectoralVotes from './data/ElectoralVotes';
 import CountTracker from './components/CountTracker';
+import MapLegend from './components/MapLegend';
 import StateColors from './models/StateColors';
 import USAMap from "react-usa-map";
 
@@ -68,11 +69,18 @@ const App = () => {
     return (
         <div className="App">
             <h1>270 FTW</h1>
-            <CountTracker
-                counts={votes}
-                colors={Object.values(StateColors)}
-            />
-            <USAMap title="270 FTW" customize={stateData} onClick={mapHandler} />
+            <div className="main-row">
+                <div className="main-content">
+                    <CountTracker
+                        counts={votes}
+                        colors={Object.values(StateColors)}
+                    />
+                    <USAMap title="270 FTW" customize={stateData} onClick={mapHandler} />
+                </div>
+                <div className="sidebar">
+                    <MapLegend />
+                </div>
+            </div>
         </div >
     );
 }
