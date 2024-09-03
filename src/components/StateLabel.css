@@ -1,0 +1,24 @@
+.state-votes {
+    display: inline;
+}
+
+.state-code {
+    display: block;
+}
+
+.state-details {
+    font-size: 8.43902pt;
+    visibility: inherit;
+    line-height: 8.93521pt;
+    font-weight: 800;
+    width: 100%;
+    height: 100%;
+}
+
+.state-details-light {
+    color: #fff;
+}
+
+.state-details-dark {
+    color: #000;
+}

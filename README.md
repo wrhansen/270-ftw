@@ -12,9 +12,11 @@ this project.
 - [X] Add s3 bucket deployment automation w/ github actions
 - [X] Add labels to CountTracker component
 - [X] Add Reset Map Button
-- [ ] Add state codes and electoral votes to the map
+- [X] Add state codes and electoral votes to the map
+- [ ] Add table for small states
 - [ ] Add component that allows split votes
 - [ ] Share link for votes
+- [ ] Mobile-friendly sidebar
 
 Demo link: http://270ftw.s3-website-us-east-1.amazonaws.com/
 

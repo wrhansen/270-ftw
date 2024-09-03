@@ -24,22 +24,22 @@ const MapLegend = () => {
             <tbody>
                 <tr>
                     <td><PaletteSquare color={StateColors.DemocratSafe} /></td>
-                    <td>Safe</td>
+                    <td><b>Safe</b></td>
                     <td><PaletteSquare color={StateColors.RepublicanSafe} /></td>
                 </tr>
                 <tr>
                     <td><PaletteSquare color={StateColors.DemocratLikely} /></td>
-                    <td>Likely</td>
+                    <td><b>Likely</b></td>
                     <td><PaletteSquare color={StateColors.RepublicanLikely} /></td>
                 </tr>
                 <tr>
                     <td><PaletteSquare color={StateColors.DemocratLeans} /></td>
-                    <td>Leans</td>
+                    <td><b>Leans</b></td>
                     <td><PaletteSquare color={StateColors.RepublicanLeans} /></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Toss Up</td>
+                    <td><b>Toss Up</b></td>
                     <td></td>
                 </tr>
                 <tr>

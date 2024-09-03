@@ -5,11 +5,16 @@ import { MapOption, mapOptions } from './data/maps';
 import CountTracker from './components/CountTracker';
 import MapLegend from './components/MapLegend';
 import MapSelector from './components/MapSelector';
+import StateLabel from './components/StateLabel';
+import { StateLabelProps } from './components/StateLabel';
 import StateColors from './models/StateColors';
 import USAMap from "react-usa-map";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
+
+import { renderToString } from 'react-dom/server';
+import stateCodePositions from './data/stateCodePositions';
 
 interface StateData {
     fill: StateColors;
@@ -31,6 +36,21 @@ const initDefaultState = () => {
 const initDefaultVotes = () => {
     return [0, 0, 0, 0, 0, 0, 0];
 }
+
+const hackObjects = () => {
+    const objs = document.getElementsByTagName("foreignObject");
+    for (let i = 0; i < objs.length; i++) {
+        objs[i].remove();
+    }
+    let svg = document.getElementsByTagName("svg")[0];
+    let outlines = svg.getElementsByClassName("outlines")[0];
+
+    for (const stateCodePosition of stateCodePositions) {
+        let props = { ...stateCodePosition } as StateLabelProps;
+        props.votes = ElectoralVotes[props.stateCode];
+        outlines.insertAdjacentHTML("beforeend", renderToString(<StateLabel {...props} />));
+    }
+};
 
 const App = () => {
     const [stateData, setStateData] = useState(initDefaultState() as { [key: string]: StateData });
@@ -55,6 +75,7 @@ const App = () => {
     /* On first render, trigger initial map to load */
     useEffect(() => {
         mapSelected(selectedOption);
+        hackObjects();
         // eslint-disable-next-line
     }, []);
 
@@ -130,7 +151,7 @@ const App = () => {
                     </Button>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
 

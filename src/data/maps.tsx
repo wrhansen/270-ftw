@@ -1,5 +1,5 @@
-import Current2024Map from "./Current2024Map";
-import BlankMap from "./BlankMap";
+import Current2024Map from "./maps/Current2024Map";
+import BlankMap from "./maps/BlankMap";
 
 export interface MapOption {
     readonly value: string;

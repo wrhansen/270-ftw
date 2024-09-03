@@ -1,4 +1,4 @@
-import StateColors from "../models/StateColors";
+import StateColors from "../../models/StateColors";
 
 const BlankMap = {
     "AL": {
