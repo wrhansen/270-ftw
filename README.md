@@ -14,7 +14,7 @@ this project.
 - [X] Add Reset Map Button
 - [X] Add state codes and electoral votes to the map
 - [ ] Click through state labels
-- [ ] Add table for small states
+- [X] Add table for small states
 - [ ] Add component that allows split votes
 - [ ] Share link for votes
 - [ ] Mobile-friendly sidebar
