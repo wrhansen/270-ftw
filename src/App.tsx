@@ -169,7 +169,6 @@ const App = () => {
                         disabled={refreshDisabled}>
                         <i className="bi bi-arrow-clockwise"></i>Reset Map
                     </Button>
-                    {/* <SmallStateGrid stateData={stateData} onClick={onSmallStateClick} /> */}
                 </div>
             </div>
         </div>
