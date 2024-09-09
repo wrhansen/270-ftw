@@ -151,10 +151,15 @@ const App = () => {
                         counts={votes}
                         colors={Object.values(StateColors)}
                     />
-                    <USAMap title="270 FTW"
-                        customize={stateData}
-                        onClick={mapHandler}
-                    />
+                    <div className="map-row">
+                        <USAMap title="270 FTW"
+                            customize={stateData}
+                            onClick={mapHandler}
+                        />
+                        <div className="small-state-grid">
+                            <SmallStateGrid stateData={stateData} onClick={onSmallStateClick} />
+                        </div>
+                    </div>
                 </div>
                 <div className="sidebar">
                     <MapLegend />
@@ -164,7 +169,7 @@ const App = () => {
                         disabled={refreshDisabled}>
                         <i className="bi bi-arrow-clockwise"></i>Reset Map
                     </Button>
-                    <SmallStateGrid stateData={stateData} onClick={onSmallStateClick} />
+                    {/* <SmallStateGrid stateData={stateData} onClick={onSmallStateClick} /> */}
                 </div>
             </div>
         </div>
