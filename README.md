@@ -13,7 +13,7 @@ this project.
 - [X] Add labels to CountTracker component
 - [X] Add Reset Map Button
 - [X] Add state codes and electoral votes to the map
-- [ ] Click through state labels
+- [X] Click through state labels
 - [X] Add table for small states
 - [ ] Add component that allows split votes
 - [ ] Share link for votes
