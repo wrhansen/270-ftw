@@ -3,6 +3,7 @@
     margin: auto;
     margin-bottom: 50px;
     flex-direction: column;
+    width: 22%;
 }
 
 .grid-row {
@@ -11,7 +12,6 @@
     font-size: 8.43902pt;
     line-height: 8.93521pt;
     font-weight: 800;
-    width: 22%;
     text-align: left;
     border-bottom: 4px solid #fff;
     padding: 5px;
