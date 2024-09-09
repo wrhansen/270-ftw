@@ -14,6 +14,11 @@
     padding: 5px;
 }
 
+.grid-row:hover {
+    opacity: 0.90;
+    cursor: pointer;
+}
+
 .state-cell {
     justify-content: flex-start;
     pointer-events: none;
