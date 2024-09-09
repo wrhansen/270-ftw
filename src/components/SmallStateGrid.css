@@ -1,0 +1,25 @@
+.grid-container {
+    display: flex;
+    margin: auto;
+    margin-bottom: 50px;
+    flex-direction: column;
+}
+
+.grid-row {
+    display: flex;
+    color: #fff;
+    width: 22%;
+    text-align: left;
+    border-bottom: 4px solid #fff;
+    padding: 5px;
+}
+
+.state-cell {
+    justify-content: flex-start;
+    pointer-events: none;
+}
+
+.votes-cell {
+    margin-left: auto;
+    pointer-events: none;
+}

@@ -1,24 +1,28 @@
 import { useEffect, useState } from 'react';
-import './App.css';
-import ElectoralVotes from './data/ElectoralVotes';
-import { MapOption, mapOptions } from './data/maps';
-import CountTracker from './components/CountTracker';
-import MapLegend from './components/MapLegend';
-import MapSelector from './components/MapSelector';
-import StateLabel from './components/StateLabel';
-import { StateLabelProps } from './components/StateLabel';
-import StateColors from './models/StateColors';
+
 import USAMap from "react-usa-map";
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
-
 import { renderToString } from 'react-dom/server';
+
+import './App.css';
+import ElectoralVotes from './data/ElectoralVotes';
+import { MapOption, mapOptions } from './data/maps';
 import stateCodePositions from './data/stateCodePositions';
+import SmallStates from './data/smallStates';
+import StateColors from './models/StateColors';
+import CountTracker from './components/CountTracker';
+import MapLegend from './components/MapLegend';
+import MapSelector from './components/MapSelector';
+import StateLabel, { StateLabelProps } from './components/StateLabel';
+import SmallStateGrid from './components/SmallStateGrid';
+
 
 interface StateData {
     fill: StateColors;
     votes: number;
+    clickHandler?: Function | null;
 };
 
 const defaultState: StateData = { fill: StateColors.TossUp, votes: 0 };
@@ -106,6 +110,10 @@ const App = () => {
         const newColor = toggleColor(currentStates[countryCode].fill);
 
         currentStates[countryCode].fill = newColor as StateColors;
+
+        if (countryCode in SmallStates) {
+            currentStates[countryCode].clickHandler = (event: any) => onSmallStateClick;
+        }
         setStateData(currentStates);
     };
 
@@ -126,6 +134,13 @@ const App = () => {
     const refreshHandler = () => {
         refreshMap(null);
     }
+
+    const onSmallStateClick = (event: any) => {
+        const stateClicked = event.target.innerText.split('\n')[0];
+        let currentStateData = { ...stateData };
+        currentStateData[stateClicked].fill = toggleColor(currentStateData[stateClicked].fill);
+        setStateData(currentStateData);
+    };
 
     return (
         <div className="App">
@@ -149,6 +164,7 @@ const App = () => {
                         disabled={refreshDisabled}>
                         <i className="bi bi-arrow-clockwise"></i>Reset Map
                     </Button>
+                    <SmallStateGrid stateData={stateData} onClick={onSmallStateClick} />
                 </div>
             </div>
         </div>
