@@ -76,6 +76,12 @@ const App = () => {
             const color = data.fill;
             const index = keys.indexOf(color);
             currentVotes[index] += data.votes;
+            if (data.splits) {
+                for (const splitData of data.splits) {
+                    const splitIndex = keys.indexOf(splitData.fill);
+                    currentVotes[splitIndex] += splitData.votes;
+                }
+            }
         }
         setVotes(currentVotes);
     }, [stateData]);
