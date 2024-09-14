@@ -17,14 +17,13 @@ const SplitVotes = (props: SplitVotesProps) => {
     }
 
     const emptyDistricts = [];
-    districtSplits.map((stateData) => {
+    for (let stateData of districtSplits) {
         const emptyDistrict = [];
         for (let i = 0; i < districtCountMax - stateData.splits.length; i++) {
             emptyDistrict.push(<th key={i}>N/A</th>);
         }
         emptyDistricts.push(emptyDistrict);
-        return;
-    })
+    }
 
     return (
         <div>
