@@ -8,6 +8,7 @@ import { renderToString } from 'react-dom/server';
 
 import './App.css';
 import ElectoralVotes from './data/ElectoralVotes';
+import stateDistricts from './data/stateDistricts';
 import { MapOption, mapOptions } from './data/maps';
 import stateCodePositions from './data/stateCodePositions';
 import SmallStates from './data/smallStates';
@@ -17,13 +18,8 @@ import MapLegend from './components/MapLegend';
 import MapSelector from './components/MapSelector';
 import StateLabel, { StateLabelProps } from './components/StateLabel';
 import SmallStateGrid from './components/SmallStateGrid';
-
-
-interface StateData {
-    fill: StateColors;
-    votes: number;
-    clickHandler?: Function | null;
-};
+import SplitVotes from './components/SplitVotes';
+import StateData from './models/StateData';
 
 const defaultState: StateData = { fill: StateColors.TossUp, votes: 0 };
 const initDefaultState = () => {
@@ -33,7 +29,15 @@ const initDefaultState = () => {
         let newState = { ...defaultState };
         newState.votes = value;
         defaultStatesMap[key] = newState;
+        if (stateDistricts[key]) {
+            let districts = [];
+            for (let i = 0; i < stateDistricts[key]; i++) {
+                districts.push({ ...defaultState });
+            }
+            defaultStatesMap[key].splits = districts;
+        }
     }
+
     return defaultStatesMap;
 };
 
@@ -164,11 +168,14 @@ const App = () => {
                 <div className="sidebar">
                     <MapLegend />
                     <MapSelector selectedMap={selectedOption} onChange={mapSelected} />
-                    <Button variant="primary"
-                        onClick={refreshHandler}
-                        disabled={refreshDisabled}>
-                        <i className="bi bi-arrow-clockwise"></i>Reset Map
-                    </Button>
+                    <div>
+                        <Button variant="primary"
+                            onClick={refreshHandler}
+                            disabled={refreshDisabled}>
+                            <i className="bi bi-arrow-clockwise"></i> Reset Map
+                        </Button>
+                    </div>
+                    <SplitVotes stateData={stateData} />
                 </div>
             </div>
         </div>

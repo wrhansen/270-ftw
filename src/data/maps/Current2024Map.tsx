@@ -79,7 +79,11 @@ const Current2024Map = {
     },
     "ME": {
         "fill": StateColors.DemocratSafe,
-        "votes": 4
+        "votes": 2,
+        "splits": [
+            { "fill": StateColors.DemocratSafe, "votes": 1 },
+            { "fill": StateColors.RepublicanLikely, "votes": 1 },
+        ]
     },
     "MD": {
         "fill": StateColors.DemocratSafe,
@@ -111,7 +115,12 @@ const Current2024Map = {
     },
     "NE": {
         "fill": StateColors.RepublicanSafe,
-        "votes": 5
+        "votes": 2,
+        "splits": [
+            { "fill": StateColors.RepublicanSafe, "votes": 1 },
+            { "fill": StateColors.DemocratLeans, "votes": 1 },
+            { "fill": StateColors.RepublicanSafe, "votes": 1 }
+        ]
     },
     "NV": {
         "fill": StateColors.TossUp,

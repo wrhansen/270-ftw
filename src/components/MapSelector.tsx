@@ -10,7 +10,7 @@ interface MapSelectorProps {
 const MapSelector = ({ selectedMap, onChange }: MapSelectorProps) => {
     return (
         <>
-            <h2>Map Select</h2>
+            <h2 style={{ textAlign: 'left' }}>Map Select</h2>
             <Select options={mapOptions} value={selectedMap} onChange={onChange} />
         </>
     );

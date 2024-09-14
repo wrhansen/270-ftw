@@ -79,7 +79,11 @@ const BlankMap = {
     },
     "ME": {
         "fill": StateColors.TossUp,
-        "votes": 4
+        "votes": 2,
+        "splits": [
+            { "fill": StateColors.TossUp, "votes": 1 },
+            { "fill": StateColors.TossUp, "votes": 1 },
+        ]
     },
     "MD": {
         "fill": StateColors.TossUp,
@@ -111,7 +115,12 @@ const BlankMap = {
     },
     "NE": {
         "fill": StateColors.TossUp,
-        "votes": 5
+        "votes": 2,
+        "splits": [
+            { "fill": StateColors.TossUp, "votes": 1 },
+            { "fill": StateColors.TossUp, "votes": 1 },
+            { "fill": StateColors.TossUp, "votes": 1 }
+        ]
     },
     "NV": {
         "fill": StateColors.TossUp,

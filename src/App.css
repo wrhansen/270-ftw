@@ -63,3 +63,7 @@ path:hover {
   right: -2%;
   width: 20%
 }
+
+.sidebar>div {
+  padding-bottom: 10px;
+}
