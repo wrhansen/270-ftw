@@ -23,6 +23,7 @@ const SplitVotes = (props: SplitVotesProps) => {
             emptyDistrict.push(<th key={i}>N/A</th>);
         }
         emptyDistricts.push(emptyDistrict);
+        return;
     })
 
     return (
