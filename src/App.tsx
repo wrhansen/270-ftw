@@ -146,6 +146,16 @@ const App = () => {
         setStateData(currentStateData);
     };
 
+    const onStateDistrictClick = (state, district, event) => {
+        let currentStateData = { ...stateData };
+        if (district !== null) {
+            currentStateData[state].splits[district].fill = toggleColor(currentStateData[state].splits[district].fill);
+        } else {
+            currentStateData[state].fill = toggleColor(currentStateData[state].fill);
+        }
+        setStateData(currentStateData);
+    };
+
     return (
         <div className="App">
             <h1>270 FTW</h1>
@@ -175,7 +185,7 @@ const App = () => {
                             <i className="bi bi-arrow-clockwise"></i> Reset Map
                         </Button>
                     </div>
-                    <SplitVotes stateData={stateData} />
+                    <SplitVotes stateData={stateData} onClick={onStateDistrictClick} />
                 </div>
             </div>
         </div>

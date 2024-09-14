@@ -1,7 +1,8 @@
 import StateData from "../models/StateData";
 
 interface SplitVotesProps {
-    stateData: { [key: string]: StateData }
+    stateData: { [key: string]: StateData },
+    onClick: CallableFunction
 }
 
 const SplitVotes = (props: SplitVotesProps) => {
@@ -20,7 +21,7 @@ const SplitVotes = (props: SplitVotesProps) => {
     for (let stateData of districtSplits) {
         const emptyDistrict = [];
         for (let i = 0; i < districtCountMax - stateData.splits.length; i++) {
-            emptyDistrict.push(<th key={i}>N/A</th>);
+            emptyDistrict.push(<th key={i}>?</th>);
         }
         emptyDistricts.push(emptyDistrict);
     }
@@ -42,18 +43,24 @@ const SplitVotes = (props: SplitVotesProps) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        districtSplits.map((stateData, index) => (
-                            <tr key={index}>
-                                <td>{districtStates[index]}</td>
-                                <td style={{ backgroundColor: props.stateData[districtStates[index]].fill }}>{props.stateData[districtStates[index]].votes}</td>
-                                {stateData.splits.map((data, i) => (
-                                    <td key={i} style={{ backgroundColor: data.fill }}>{data.votes}</td>
-                                ))}
-                                {emptyDistricts[index]}
-                            </tr>
-                        ))
-                    }
+                    {districtSplits.map((stateData, index) => (
+                        <tr key={index}>
+                            <td>{districtStates[index]}</td>
+                            <td
+                                style={{ backgroundColor: props.stateData[districtStates[index]].fill }}
+                                onClick={(event) => props.onClick(districtStates[index], null, event)}
+                            >
+                                {props.stateData[districtStates[index]].votes}
+                            </td>
+                            {stateData.splits.map((data, i) => (
+                                <td
+                                    key={i}
+                                    style={{ backgroundColor: data.fill }}
+                                    onClick={(event) => props.onClick(districtStates[index], i, event)}>{data.votes}</td>
+                            ))}
+                            {emptyDistricts[index]}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div >
