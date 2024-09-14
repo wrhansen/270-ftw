@@ -1,4 +1,7 @@
 import StateData from "../models/StateData";
+import './SplitVotes.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
+
 
 interface SplitVotesProps {
     stateData: { [key: string]: StateData },
@@ -14,14 +17,14 @@ const SplitVotes = (props: SplitVotesProps) => {
 
     const districtCols = [];
     for (let i = 0; i < districtCountMax; i++) {
-        districtCols.push(<th key={i + 1}>{i + 1}</th>);
+        districtCols.push(<th key={i + 1} className="cell cell-header">{i + 1}</th>);
     }
 
     const emptyDistricts = [];
     for (let stateData of districtSplits) {
         const emptyDistrict = [];
         for (let i = 0; i < districtCountMax - stateData.splits.length; i++) {
-            emptyDistrict.push(<th key={i}>?</th>);
+            emptyDistrict.push(<th className="cell" style={{ fontSize: "1.25rem" }} key={i}><i className="bi bi-question-circle"></i></th>);
         }
         emptyDistricts.push(emptyDistrict);
     }
@@ -29,32 +32,38 @@ const SplitVotes = (props: SplitVotesProps) => {
     return (
         <div>
             <h2 style={{ textAlign: 'left' }}>Split Votes</h2>
-            <table>
+            <table className="split-table">
                 <thead>
                     <tr>
                         <th></th>
-                        <th rowSpan={2}>State</th>
-                        <th colSpan={3}>District</th>
+                        <th className="col-state header-cell" rowSpan={2}>State</th>
+                        <th className="header-cell" colSpan={3}>District</th>
                     </tr>
                     <tr></tr>
                     <tr>
-                        <th></th><th></th>
+                        <th></th><th className="col-state"></th>
                         {districtCols}
                     </tr>
                 </thead>
                 <tbody>
                     {districtSplits.map((stateData, index) => (
                         <tr key={index}>
-                            <td>{districtStates[index]}</td>
+                            <td className="state-label split-cell">{districtStates[index]}</td>
                             <td
-                                style={{ backgroundColor: props.stateData[districtStates[index]].fill }}
-                                onClick={(event) => props.onClick(districtStates[index], null, event)}
+                                className="vote-label cell col-state"
                             >
-                                {props.stateData[districtStates[index]].votes}
+                                <div
+                                    className="state-div split-cell"
+                                    style={{ backgroundColor: props.stateData[districtStates[index]].fill }}
+                                    onClick={(event) => props.onClick(districtStates[index], null, event)}
+                                >
+                                    {props.stateData[districtStates[index]].votes}
+                                </div>
                             </td>
                             {stateData.splits.map((data, i) => (
                                 <td
                                     key={i}
+                                    className="vote-label cell split-cell"
                                     style={{ backgroundColor: data.fill }}
                                     onClick={(event) => props.onClick(districtStates[index], i, event)}>{data.votes}</td>
                             ))}
