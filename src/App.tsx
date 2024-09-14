@@ -146,7 +146,7 @@ const App = () => {
         setStateData(currentStateData);
     };
 
-    const onStateDistrictClick = (state, district, event) => {
+    const onStateDistrictClick = (state, district) => {
         let currentStateData = { ...stateData };
         if (district !== null) {
             currentStateData[state].splits[district].fill = toggleColor(currentStateData[state].splits[district].fill);
