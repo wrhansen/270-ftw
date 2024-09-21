@@ -12,9 +12,9 @@
     font-size: 8.43902pt;
     line-height: 8.93521pt;
     font-weight: 800;
-    text-align: left;
     border-bottom: 4px solid #fff;
     padding: 5px;
+    gap: 3px;
 }
 
 .grid-row:hover {
