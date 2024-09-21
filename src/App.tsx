@@ -183,15 +183,8 @@ const App = () => {
                 </div>
                 <div className="sidebar">
                     <MapLegend />
-                    <MapSelector selectedMap={selectedOption} onChange={mapSelected} />
-                    <div>
-                        <Button variant="primary"
-                            onClick={refreshHandler}
-                            disabled={refreshDisabled}>
-                            <i className="bi bi-arrow-clockwise"></i> Reset Map
-                        </Button>
-                    </div>
                     <SplitVotes stateData={stateData} onClick={onStateDistrictClick} />
+                    <MapSelector selectedMap={selectedOption} onChange={mapSelected} onButtonClick={refreshHandler} buttonDisabled={refreshDisabled} />
                 </div>
             </div>
         </div>
