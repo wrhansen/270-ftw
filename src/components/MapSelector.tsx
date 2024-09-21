@@ -18,7 +18,7 @@ interface MapSelectorProps {
 const MapSelector = ({ selectedMap, onChange, onButtonClick, buttonDisabled }: MapSelectorProps) => {
     return (
         <div className="map-selector">
-            <h2 style={{ textAlign: 'left' }}>Map Select</h2>
+            <h2 className="map-selector-title">Map Select</h2>
             <Select options={mapOptions} value={selectedMap} onChange={onChange} isSearchable={false} />
             <div>
                 <Button variant="primary"

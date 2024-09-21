@@ -31,7 +31,7 @@ const SplitVotes = (props: SplitVotesProps) => {
 
     return (
         <div>
-            <h2 style={{ textAlign: 'left' }}>Split Votes</h2>
+            <h2 className="title-header">Split Votes</h2>
             <table className="split-table">
                 <thead>
                     <tr>

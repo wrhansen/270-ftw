@@ -1,14 +1,20 @@
-h2 {
-    font-size: 1.5rem;
-    font-weight: 900;
-}
-
 .map-selector {
     width: 100%;
 }
 
+.map-selector-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: left;
+
+}
+
 @media (max-width: 767px) {
     .map-selector {
-        width: 50%;
+        width: 30%;
+    }
+
+    .map-selector-title {
+        text-align: center;
     }
 }

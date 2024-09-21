@@ -47,3 +47,13 @@ h2 {
     font-size: 1.5rem;
     font-weight: 500;
 }
+
+.title-header {
+    text-align: left;
+}
+
+@media (max-width: 767px) {
+    .title-header {
+        text-align: center;
+    }
+}
