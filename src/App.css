@@ -60,8 +60,8 @@ path:hover {
 .small-state-grid {
   position: absolute;
   top: 40%;
-  right: -2%;
-  width: 20%
+  right: 6%;
+  width: 5%
 }
 
 .sidebar>div {
