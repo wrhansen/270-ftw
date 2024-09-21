@@ -37,16 +37,6 @@ path:hover {
   cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .main-row {
   display: inline-flex;
   align-items: first baseline;
@@ -66,4 +56,30 @@ path:hover {
 
 .sidebar>div {
   padding-bottom: 10px;
+}
+
+.sidebar {
+  width: 20%;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .main-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .small-state-grid {
+    width: 45px;
+    right: 3%;
+  }
+}
+
+.us-state-map {
+  width: 100%;
 }

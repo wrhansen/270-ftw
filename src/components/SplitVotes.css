@@ -2,6 +2,7 @@
     border-collapse: separate;
     border-width: 2px;
     border-color: gray;
+    width: 100%;
 }
 
 .cell {
@@ -40,4 +41,9 @@
 
 .state-div {
     line-height: 30px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
 }

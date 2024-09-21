@@ -1,0 +1,14 @@
+h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.map-selector {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .map-selector {
+        width: 50%;
+    }
+}

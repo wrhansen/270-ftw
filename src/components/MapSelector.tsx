@@ -1,5 +1,6 @@
 import { MouseEventHandler } from 'react';
 import Select from 'react-select';
+import './MapSelector.css';
 
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,9 +17,9 @@ interface MapSelectorProps {
 
 const MapSelector = ({ selectedMap, onChange, onButtonClick, buttonDisabled }: MapSelectorProps) => {
     return (
-        <>
+        <div className="map-selector">
             <h2 style={{ textAlign: 'left' }}>Map Select</h2>
-            <Select options={mapOptions} value={selectedMap} onChange={onChange} />
+            <Select options={mapOptions} value={selectedMap} onChange={onChange} isSearchable={false} />
             <div>
                 <Button variant="primary"
                     onClick={onButtonClick}
@@ -26,7 +27,7 @@ const MapSelector = ({ selectedMap, onChange, onButtonClick, buttonDisabled }: M
                     <i className="bi bi-arrow-clockwise"></i> Reset Map
                 </Button>
             </div>
-        </>
+        </div>
     );
 }
 
