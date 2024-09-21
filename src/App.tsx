@@ -43,17 +43,21 @@ const initDefaultVotes = () => {
     return [0, 0, 0, 0, 0, 0, 0];
 }
 
-const insertStateLabelsOnMap = () => {
-    const objs = document.getElementsByTagName("foreignObject");
-    for (let i = 0; i < objs.length; i++) {
-        objs[i].remove();
+const insertStateLabelsOnMap = (stateData) => {
+    const objs = document.querySelectorAll("foreignObject");
+    if (objs) {
+        for (let i = 0; i < objs.length; i++) {
+            objs[i].parentNode.removeChild(objs[i]);
+        }
     }
     let svg = document.getElementsByTagName("svg")[0];
     let outlines = svg.getElementsByClassName("outlines")[0];
 
     for (const stateCodePosition of stateCodePositions) {
         let props = { ...stateCodePosition } as StateLabelProps;
-        props.votes = ElectoralVotes[props.stateCode];
+        props.votes = stateData[props.stateCode].votes;
+        props.splits = stateData[props.stateCode].splits;
+        props.fill = stateData[props.stateCode].fill;
         outlines.insertAdjacentHTML("beforeend", renderToString(<StateLabel {...props} />));
     }
 };
@@ -84,10 +88,13 @@ const App = () => {
         setVotes(currentVotes);
     }, [stateData]);
 
+    useEffect(() => {
+        insertStateLabelsOnMap(stateData);
+    }, [stateData]);
+
     /* On first render, trigger initial map to load */
     useEffect(() => {
         mapSelected(selectedOption);
-        insertStateLabelsOnMap();
         // eslint-disable-next-line
     }, []);
 

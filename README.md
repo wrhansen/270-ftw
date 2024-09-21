@@ -15,7 +15,8 @@ this project.
 - [X] Add state codes and electoral votes to the map
 - [X] Click through state labels
 - [X] Add table for small states
-- [ ] Add component that allows split votes
+- [X] Add component that allows split votes
+- [X] Add split votes visual on map
 - [ ] Share link for votes
 - [ ] Mobile-friendly sidebar
 

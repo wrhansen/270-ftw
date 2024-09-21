@@ -27,3 +27,7 @@ foreignObject {
 .state-details-dark {
     color: #000;
 }
+
+.district-votes {
+    display: inline-block;
+}
