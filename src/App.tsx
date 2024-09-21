@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import USAMap from "react-usa-map";
-import { Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.min.css';
+
 import { renderToString } from 'react-dom/server';
 
 import './App.css';
@@ -45,7 +43,7 @@ const initDefaultVotes = () => {
     return [0, 0, 0, 0, 0, 0, 0];
 }
 
-const hackObjects = () => {
+const insertStateLabelsOnMap = () => {
     const objs = document.getElementsByTagName("foreignObject");
     for (let i = 0; i < objs.length; i++) {
         objs[i].remove();
@@ -89,7 +87,7 @@ const App = () => {
     /* On first render, trigger initial map to load */
     useEffect(() => {
         mapSelected(selectedOption);
-        hackObjects();
+        insertStateLabelsOnMap();
         // eslint-disable-next-line
     }, []);
 
