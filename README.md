@@ -18,7 +18,7 @@ this project.
 - [X] Add component that allows split votes
 - [X] Add split votes visual on map
 - [ ] Share link for votes
-- [ ] Mobile-friendly sidebar
+- [X] Mobile-friendly sidebar
 
 Demo link: http://270ftw.s3-website-us-east-1.amazonaws.com/
 

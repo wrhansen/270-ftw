@@ -2,32 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 path {
   pointer-events: all;
 }
@@ -37,9 +11,14 @@ path:hover {
   cursor: pointer;
 }
 
+.main-content {
+  flex-grow: 1;
+}
+
 .main-row {
   display: inline-flex;
   align-items: first baseline;
+  width: 75%;
 }
 
 .map-row {
@@ -51,7 +30,7 @@ path:hover {
   position: absolute;
   top: 40%;
   right: 6%;
-  width: 5%
+  width: 5%;
 }
 
 .sidebar>div {
@@ -59,7 +38,7 @@ path:hover {
 }
 
 .sidebar {
-  width: 20%;
+  width: 15%;
 }
 
 @media (max-width: 767px) {
@@ -69,9 +48,14 @@ path:hover {
     width: 100%;
   }
 
+  .main-content {
+    flex-grow: unset;
+  }
+
   .main-row {
     display: flex;
     flex-direction: column;
+    width: 100%
   }
 
   .small-state-grid {
