@@ -6,7 +6,7 @@ const Current2024Map = {
         "votes": 9
     },
     "AK": {
-        "fill": StateColors.RepublicanLikely,
+        "fill": StateColors.RepublicanSafe,
         "votes": 3
     },
     "AZ": {
@@ -22,7 +22,7 @@ const Current2024Map = {
         "votes": 54
     },
     "CO": {
-        "fill": StateColors.DemocratLikely,
+        "fill": StateColors.DemocratSafe,
         "votes": 10
     },
     "CT": {
@@ -78,7 +78,7 @@ const Current2024Map = {
         "votes": 8
     },
     "ME": {
-        "fill": StateColors.DemocratSafe,
+        "fill": StateColors.DemocratLikely,
         "votes": 2,
         "splits": [
             { "fill": StateColors.DemocratSafe, "votes": 1 },
@@ -127,7 +127,7 @@ const Current2024Map = {
         "votes": 6
     },
     "NH": {
-        "fill": StateColors.DemocratLeans,
+        "fill": StateColors.DemocratLikely,
         "votes": 4
     },
     "NJ": {
@@ -171,7 +171,7 @@ const Current2024Map = {
         "votes": 4
     },
     "SC": {
-        "fill": StateColors.RepublicanLikely,
+        "fill": StateColors.RepublicanSafe,
         "votes": 9
     },
     "SD": {
